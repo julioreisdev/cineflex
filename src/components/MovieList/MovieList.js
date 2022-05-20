@@ -16,7 +16,7 @@ export function MovieList() {
 
   return (
     <>
-      <TitleSection>Selecione o filme</TitleSection>
+      <h2>Selecione o filme</h2>
       <Container>
         {movies.map((movie) => (
           <Movie
@@ -30,12 +30,6 @@ export function MovieList() {
     </>
   );
 }
-
-const TitleSection = styled.h2`
-  font-size: 1.5rem;
-  margin-top: 100px;
-  text-align: center;
-`;
 
 const Container = styled.div`
   margin-top: 50px;
