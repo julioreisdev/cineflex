@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export const ids = [];
+export const names = [];
 
 export function Seat({ seat }) {
   const [select, setSelect] = useState(false);
@@ -14,11 +15,13 @@ export function Seat({ seat }) {
     }
     if (!select && seat.isAvailable === true) {
       ids.push(seat.id);
+      names.push(seat.name);
       console.log("SELECT");
     } else {
       for (let i = 0; i < ids.length; i++) {
         if (ids[i] === seat.id) {
           ids.splice(i,1);
+          names.splice(i,1);
         }
       }
     }

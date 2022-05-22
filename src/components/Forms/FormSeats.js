@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import cpfValid from "./cpfValid";
 import { ids } from "../Seats/Seat";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function FormSeats() {
+export default function FormSeats({ setNamePerson, setCpfPerson }) {
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [invalid, setInvalid] = useState("");
   const [requested, setRequested] = useState({});
+
+  let navigate = useNavigate();
 
   function add() {
     setRequested({
@@ -16,6 +19,8 @@ export default function FormSeats() {
       name: nome,
       cpf: cpf,
     });
+    setNamePerson(nome);
+    setCpfPerson(cpf);
   }
 
   function submit(e) {
@@ -32,12 +37,15 @@ export default function FormSeats() {
         name: nome,
         cpf: cpf,
       });
+      setNamePerson(nome);
+      setCpfPerson(cpf);
       const promise = axios.post(
         "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
         requested
       );
       promise.then(function (response) {
         console.log(response);
+        navigate("/sucesso");
       });
     }
   }

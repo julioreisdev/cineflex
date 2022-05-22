@@ -16,12 +16,15 @@ function TitleSection({title, time}) {
   );
 }
 
-export default function Assentos() {
+const filmSection = `a\nb`;
+
+export default function Seats( {setMovie, setDate, setNamePerson, setCpfPerson} ) {
   const { idSection } = useParams();
   const [image, setImage] = useState();
   const [titleMovie, setTitleMovie] = useState();
   const [dateMovieSection, setDateMovieSection] = useState();
   const [seats, setSeats] = useState([]);
+  const [dateTime, setDateTime] = useState();
 
   useEffect(() => {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSection}/seats`);
@@ -30,6 +33,7 @@ export default function Assentos() {
       setTitleMovie(response.data.movie.title);
       setDateMovieSection(`${response.data.day.weekday} - ${response.data.name}`);
       setSeats(response.data.seats);
+      setDateTime(`${response.data.day.date} - ${response.data.name}`);
     });
   }, []);
 
@@ -38,8 +42,10 @@ export default function Assentos() {
       <h2>Selecione o(s) assento(s)</h2>
       <SeatsFlex>{seats.map((seat) => <Seat seat={seat} />)}</SeatsFlex>
       <HelpSelectSeat />
-      <FormSeats />
+      <FormSeats setNamePerson={setNamePerson} setCpfPerson={setCpfPerson} />
       <Footer url={image} title={<TitleSection title={titleMovie} time={dateMovieSection} />} />
+      {setMovie(titleMovie)}
+      {setDate(dateTime)}
     </Container>
   );
 }

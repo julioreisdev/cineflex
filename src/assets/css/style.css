@@ -28,3 +28,11 @@ h2 {
   background-color: rgb(243, 158, 158) !important;
   color: #fff;
 }
+
+.success {
+  color: #247A6B;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 60%;
+  margin: 90px auto 2rem auto;
+}
