@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function Time ({showtimes}) {
   return (
     <Times>
-      {showtimes.map((d) => <OneTime>{d.name}</OneTime>)}
+      {showtimes.map((d) => <Link to={`/assentos/${d.id}`} className='linkSection'><OneTime>{d.name}</OneTime></Link>)}
     </Times>
   );
 }

@@ -1,15 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap");
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .linkFilme {
   width: 40%;
 }
 
+.linkSection {
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
 h2 {
   font-size: 1.5rem;
   margin-top: 100px;
   text-align: center;
+}
+
+.selected {
+  background-color: #8dd7cf !important;
+  border-color: #45bdb0 !important;
+}
+
+.invalid {
+  background-color: rgb(243, 158, 158) !important;
+  color: #fff;
 }
